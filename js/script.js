@@ -1,12 +1,12 @@
 {
-    let ul = document.querySelector('.results');
+    const ul = document.querySelector('.results');
 
     const createResultList = (results) => {
         ul.innerHTML = '';
         results.map(x => liCreation(x))
     };
 
-    let liCreation = (elm) => {
+    const liCreation = (elm) => {
         li = document.createElement('li');
         li.id = elm.id;
         li.innerHTML = elm.name;
@@ -15,7 +15,7 @@
     };
 
 
-    let clickedLi = (li) => {
+    const clickedLi = (li) => {
         li.addEventListener('click', getYoutubeVids)
     };
 
@@ -35,7 +35,7 @@
     //********************************
     // fetch async await
     //********************************
-    let getYoutubeVids = async (e) => {
+    const getYoutubeVids = async (e) => {
         const li = e.currentTarget;
         const url = `https://musicdemons.com/api/v1/artist/${li.id}/songs`;
         let response = await fetch(url, {method: "GET"}).catch(error => console.warn(error));
@@ -43,12 +43,12 @@
             videoCreation(response);     
     };
 
-    let videoCreation = (vids) => {
+    const videoCreation = (vids) => {
         ul.innerHTML = '';
         vids.map(x => displayVideo(x))
     };
 
-    let displayVideo = (vid) => {
+    const displayVideo = (vid) => {
         li = document.createElement('li');
         li.innerHTML = /*HTML*/ `<iframe width="560" height="315" src="https://www.youtube.com/embed/${vid.youtube_id}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
         ul.appendChild(li);
