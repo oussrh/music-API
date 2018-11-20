@@ -24,7 +24,7 @@
     //********************************
     // let getYoutubeVids = (e) =>{
     //     const li = e.currentTarget;
-    //     const url = `https://musicdemons.com/api/v1/artist/${li.id}/songs`;
+    //     const url = `https://    /api/v1/artist/${li.id}/songs`;
     //     fetch(url, {
     //         method: "GET"})
     //     .then((response) => response.json())
@@ -38,11 +38,9 @@
     let getYoutubeVids = async (e) => {
         const li = e.currentTarget;
         const url = `https://musicdemons.com/api/v1/artist/${li.id}/songs`;
-        let response = await fetch(url, {
-                method: "GET"
-            }).catch(error => console.warn(error))
-            response = await response.json()
-            videoCreation(response)      
+        let response = await fetch(url, {method: "GET"}).catch(error => console.warn(error));
+            response = await response.json();
+            videoCreation(response);     
     };
 
     let videoCreation = (vids) => {
